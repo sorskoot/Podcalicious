@@ -72,17 +72,17 @@ function doWebpack(minify) {
 }
 
 gulp.task('js', function () {
-    return gulp.src("src/js.index.js")
+    return gulp.src("./src/js/index.js")
         .pipe(named())
         .pipe(doWebpack())
-        .pipe(gulp.dest("public/javascripts"));
+        .pipe(gulp.dest("./public/javascripts"));
 });
 
 gulp.task('js-release', function () {
-    return gulp.src("src/js/index.js")
+    return gulp.src("./src/js/index.js")
         .pipe(named())
         .pipe(doWebpack(true))
-        .pipe(gulp.dest("public/javascripts/scripts"));
+        .pipe(gulp.dest("./public/javascripts"));
 });
 
 gulp.task("compile", ['copy-images', 'sass', 'js', 'copy-sw']);
