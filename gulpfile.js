@@ -2,6 +2,7 @@ const path = require('path'),
     gulp = require("gulp"),
     sourcemaps = require("gulp-sourcemaps"),
     sass = require('gulp-sass'),
+    sassGlob = require('gulp-sass-glob'),
     webpackStream = require('webpack-stream'),
     webpack = require('webpack'),
     jshint = require('gulp-jshint'),
@@ -12,6 +13,7 @@ const path = require('path'),
 gulp.task('sass', function () {
     return gulp.src('./src/sass/main.scss')
         .pipe(sourcemaps.init())
+        .pipe(sassGlob())
         .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
         .pipe(sourcemaps.write())
         .pipe(gulp.dest('./public/stylesheets'));
