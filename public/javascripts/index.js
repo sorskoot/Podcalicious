@@ -49,15 +49,31 @@
 
 /***/ },
 /* 1 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	__webpack_require__(2);
+	
+	function initialize() {
+	    $('.rssinput-submit')[0].onclick = e => {
+	        fetch('/API/Feed/' + encodeURIComponent(e.target.parentElement.parentElement.firstChild.value)).then(res => {
+	            res.json().then(json => {
+	                $('#debug').innerHTML = json;
+	            });
+	        });
+	    };
+	}
+	
+	initialize();
+
+/***/ },
+/* 2 */
 /***/ function(module, exports) {
 
-	(function () {
-	    'use strict';
-	
-	    function initialize() {}
-	
-	    initialize();
-	})();
+	window.$ = function (selector) {
+	  return document.querySelectorAll(selector);
+	};
 
 /***/ }
 /******/ ]);

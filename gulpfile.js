@@ -9,12 +9,12 @@ const path = require('path'),
     fs = require('fs'),
     zip = require("gulp-zip");
 
-gulp.task('sass',  function  ()  {
-      return  gulp.src('./sass/main.scss')
+gulp.task('sass', function () {
+    return gulp.src('./src/sass/main.scss')
         .pipe(sourcemaps.init())
-            .pipe(sass({ outputStyle:  'compressed' }).on('error',  sass.logError))
+        .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
         .pipe(sourcemaps.write())
-            .pipe(gulp.dest('./public/stylesheets'));
+        .pipe(gulp.dest('./public/stylesheets'));
 });
 
 gulp.task("deploy", function () {

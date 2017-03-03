@@ -11,8 +11,9 @@ router.get('/feed/:url', function (req, res, next) {
     const url = 'http://www.codingblocks.net/podcast-feed.xml';
 
     feedparser.parse(url).then((items) => {
+        
+        
         res.json(items);
-
     }).catch((error) => {
         res.sendStatus(500, error)
     });
