@@ -54,12 +54,19 @@
 	'use strict';
 	
 	__webpack_require__(2);
+	const templater = __webpack_require__(3);
 	
 	function initialize() {
+	    let sessionTemplate = $('#episode')[0].innerHTML;
+	
 	    $('.rssinput-submit')[0].onclick = e => {
 	        fetch('/API/Feed/' + encodeURIComponent(e.target.parentElement.parentElement.firstChild.value)).then(res => {
-	            res.json().then(json => {
-	                $('#debug').innerHTML = json;
+	            res.json().then(result => {
+	
+	                let resultEl = $('#result')[0];
+	                for (let i = 0; i < result.length; i++) {
+	                    resultEl.innerHTML = resultEl.innerHTML + templater(sessionTemplate, result[i]);
+	                }
 	            });
 	        });
 	    };
@@ -74,6 +81,25 @@
 	window.$ = function (selector) {
 	  return document.querySelectorAll(selector);
 	};
+
+/***/ },
+/* 3 */
+/***/ function(module, exports) {
+
+	(function () {
+	    module.exports = function templater(template, replacement) {
+	        const regex = /{{(\w*)}}/g;
+	        let m,
+	            result = template;
+	        while ((m = regex.exec(template)) !== null) {
+	            if (m.index === regex.lastIndex) {
+	                regex.lastIndex++;
+	            }
+	            result = result.replace(m[0], replacement[m[1]]);
+	        }
+	        return result;
+	    };
+	})();
 
 /***/ }
 /******/ ]);
