@@ -15,17 +15,17 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
-app.enable('trust proxy');
+// app.enable('trust proxy');
 
-app.use (function (req, res, next) {
-        if (req.secure) {
-                // request was via https, so do no special handling
-                next();
-        } else {
-                // request was via http, so redirect to https
-                res.redirect('https://' + req.headers.host + req.url);
-        }
-});
+// app.use (function (req, res, next) {
+//         if (req.secure) {
+//                 // request was via https, so do no special handling
+//                 next();
+//         } else {
+//                 // request was via http, so redirect to https
+//                 res.redirect('https://' + req.headers.host + req.url);
+//         }
+// });
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
