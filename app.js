@@ -33,13 +33,8 @@ app.use('/', index);
 app.use('/users', users);
 app.use('/api', api);
 
-app.enable('trust proxy');
-
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
-  if (!req.secure) {
-    res.redirect('https://' + req.headers.host + req.url);
-  }
   var err = new Error('Not Found');
   err.status = 404;
   next(err);
