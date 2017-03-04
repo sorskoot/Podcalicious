@@ -33,6 +33,8 @@ app.use('/', index);
 app.use('/users', users);
 app.use('/api', api);
 
+app.enable('trust proxy');
+
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   if (!req.secure) {
