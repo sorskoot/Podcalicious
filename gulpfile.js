@@ -33,7 +33,7 @@ gulp.task('copy-images', function () {
 
 gulp.task('copy-sw', function () {
     return gulp.src(['./src/js/sw.js'])
-        .pipe(gulp.dest('./public/javascripts'));
+        .pipe(gulp.dest('./public'));
 })
 
 function doWebpack(minify) {

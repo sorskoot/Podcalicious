@@ -4,4 +4,11 @@ figure{
     margin:0;
 }
 
+html {
+    touch-action: none;
+}
+
+@import 'colors';
+@import 'fonts';
+
 @import '../../views/**/*'

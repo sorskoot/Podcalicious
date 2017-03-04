@@ -1,0 +1,16 @@
+$color-jaffa:#F09037;
+$color-maverick:#F2F0F2;
+$color-fedora:#737073;
+$color-thunder:#262426;
+$color-finn:#0D060B;
+
+$theme-dark:(
+    background: $color-finn,
+    foreground: $color-maverick,
+    accent: $color-jaffa
+);
+
+.theme-dark{
+    background-color:map-get($theme-dark, background);
+    color:map-get($theme-dark, foreground);
+}

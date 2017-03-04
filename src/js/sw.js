@@ -2,12 +2,12 @@ const CACHE = 'podcalicious-cache-only';
 
 self.addEventListener('install', (e) => {
     console.log('service worker is being installed');
-    e.waitUnit(precache());
+    e.waitUntil(precache());
 });
 
 self.addEventListener('fetch', (e) => {
     console.log('service worker is serving from cache');
-    e.respondWitn(fromCache(e.request));
+    e.respondWith(fromCache(e.request));
 });
 
 function precache() {
@@ -15,7 +15,7 @@ function precache() {
         return cache.addAll([
             './',
             './javascripts/index.js',
-            './stylesheets/style.css'
+            './stylesheets/main.css'
         ]);
     })
 }
