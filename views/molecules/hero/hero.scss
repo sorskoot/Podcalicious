@@ -1,6 +1,14 @@
 .header-image{
-    .backgroundimage{
-         background-image: url('/images/tape_low.jpg');    
+     position: relative;
+     width:100%;
+    //height:325px;
+    .header-overlay{
+        padding:$rythm-quarter 0;
+        background:transparentize(map-get($theme-dark,background ), 0.25);
+        position: absolute;
+        top:100%;
+        left:0;
+        transform:translateY(-100%);
+        width:100%;
     }
-    height:235px;
 }

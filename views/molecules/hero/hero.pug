@@ -1,4 +1,7 @@
 mixin hero(url,imgurl,alt)
   figure.header-image
-    +backgroundimage(imgurl,alt)
-    +title('PODCALICIOUS')
+    +heroimage(imgurl,alt)
+    div.header-overlay
+      div.container.grid
+        +title('PODCALICIOUS','col-2-3')
+        +rssinput('col-1-3')

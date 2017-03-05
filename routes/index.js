@@ -7,7 +7,7 @@ router.get('/', function (req, res, next) {
     title: 'podcalicious',
     imgHero: {
       alt:"hero",
-      src:'/images/tape_low.jpg'
+      src:'/images/header.jpg'
     }
   });
 });

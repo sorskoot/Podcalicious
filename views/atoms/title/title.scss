@@ -1,4 +1,7 @@
 .title{
     @extend .title-font;
-    font-size:1.2em;
+    color: map-get($theme-dark , foreground);
+    font-size:$rythm-bar-dot;
+    font-weight: 600;
+    margin:0;
 }

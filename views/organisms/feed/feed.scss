@@ -1,0 +1,6 @@
+.feed{   
+    @extend .container;
+    @extend .theme-light;
+
+    margin-top: $rythm-quarter;
+}
