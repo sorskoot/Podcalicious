@@ -1,5 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Oswald:300,600');
+@import url('http://fonts.googleapis.com/css?family=Roboto:100:300:500');
+
+$font-oswald: 'Oswald';
+$font-roboto: 'Roboto';
 
 .title-font{
-    font-family: 'Oswald', sans-serif;
+    font-family: $font-oswald, sans-serif;
+}
+
+.regular-font{
+     font-family: $font-roboto, sans-serif;
 }
