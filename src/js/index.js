@@ -13,8 +13,8 @@ function initialize() {
 
     let sessionTemplate = $('#episode')[0].innerHTML;
 
-    $('.rssinput-submit')[0].onclick = e => {
-        let query = e.target.parentElement.parentElement.firstChild.value;
+    $('#rssinput-submit')[0].onclick = e => {
+        let query = $("#rssinput-input")[0].value;
         if(!query)
             return;
 

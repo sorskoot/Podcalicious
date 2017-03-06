@@ -6,8 +6,12 @@
             if (m.index === regex.lastIndex) {
                 regex.lastIndex++;
             }
-            result = result.replace(m[0], replacement[m[1]]);
+            var repl = m[1].split('.').reduce((obj, property) => obj[property], replacement);
+            if (repl) {
+                result = result.replace(m[0], repl);
+            }
         }
         return result;
     }
+
 })();

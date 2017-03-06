@@ -67,8 +67,8 @@
 	
 	    let sessionTemplate = $('#episode')[0].innerHTML;
 	
-	    $('.rssinput-submit')[0].onclick = e => {
-	        let query = e.target.parentElement.parentElement.firstChild.value;
+	    $('#rssinput-submit')[0].onclick = e => {
+	        let query = $("#rssinput-input")[0].value;
 	        if (!query) return;
 	
 	        fetch('/API/Feed/' + encodeURIComponent(query)).then(res => {
@@ -99,17 +99,27 @@
 
 	(function () {
 	    module.exports = function templater(template, replacement) {
-	        const regex = /{{(\w*)}}/g;
+	        const regex = /{{(\w*(?:\.\w+)*)}}/g;
 	        let m,
 	            result = template;
 	        while ((m = regex.exec(template)) !== null) {
 	            if (m.index === regex.lastIndex) {
 	                regex.lastIndex++;
 	            }
-	            result = result.replace(m[0], replacement[m[1]]);
+	            var repl = getNested(replacement, m[1]);
+	            if (repl) {
+	                result = result.replace(m[0], repl);
+	            }
 	        }
 	        return result;
 	    };
+	
+	    function getNested(theObject, path) {
+	
+	        return path.split('.').reduce(function (obj, property) {
+	            return obj[property];
+	        }, theObject);
+	    }
 	})();
 
 /***/ }
