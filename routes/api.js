@@ -13,7 +13,7 @@ router.get('/feed/:url', function (req, res, next) {
     feedparser.parse(url).then((items) => {
         
         
-        res.json(items);
+        res.json(items.slice(0,10));
     }).catch((error) => {
         res.sendStatus(500, error)
     });

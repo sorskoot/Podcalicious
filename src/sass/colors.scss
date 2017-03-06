@@ -6,12 +6,14 @@ $color-finn:#0D060B;
 
 $theme-dark:(
     background: $color-finn,
+    background-shaded: $color-thunder,
     foreground: $color-fedora,
     accent: $color-jaffa
 );
 
 $theme-light:(
     background: $color-maverick,
+    background-shaded: $color-fedora,
     foreground: $color-thunder,
     accent: $color-jaffa
 );

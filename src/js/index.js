@@ -14,10 +14,14 @@ function initialize() {
     let sessionTemplate = $('#episode')[0].innerHTML;
 
     $('.rssinput-submit')[0].onclick = e => {
-        fetch('/API/Feed/' + encodeURIComponent(e.target.parentElement.parentElement.firstChild.value)).then((res => {
+        let query = e.target.parentElement.parentElement.firstChild.value;
+        if(!query)
+            return;
+
+        fetch('/API/Feed/' + encodeURIComponent(query)).then((res => {
             res.json().then(result => {
 
-                let resultEl = $('#result')[0];
+                let resultEl = $('#feed')[0];
                 for (let i = 0; i < result.length; i++) {
                     resultEl.innerHTML = resultEl.innerHTML + templater(sessionTemplate, result[i]);
                 }

@@ -1,4 +1,5 @@
-mixin feeditem
+mixin feeditem(title,imgSrc)
   div.feeditem
+    img(src=imgSrc)
     div
-      span Lorem ipsum dolor sit amet.
+      span #{title}
