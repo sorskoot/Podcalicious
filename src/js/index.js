@@ -3,13 +3,13 @@ require('../library/utils.js');
 const templater = require('./templater.js');
 
 function initialize() {
-    if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/sw.js').then(function (registration) {
-            console.log('ServiceWorker registration successful with scope: ', registration.scope);
-        }).catch(function (err) {
-            console.log('ServiceWorker registration failed: ', err);
-        });
-    }
+    // if ('serviceWorker' in navigator) {
+    //     navigator.serviceWorker.register('/sw.js').then(function (registration) {
+    //         console.log('ServiceWorker registration successful with scope: ', registration.scope);
+    //     }).catch(function (err) {
+    //         console.log('ServiceWorker registration failed: ', err);
+    //     });
+    // }
 
     let sessionTemplate = $('#episode')[0].innerHTML;
 

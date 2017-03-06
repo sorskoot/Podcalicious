@@ -17,8 +17,8 @@
     line-height: $rythm-half-dot;
     padding: 0 $rythm-quarter-dot;
     color: map-get($theme-light, accent);
-    -webkit-transition: all 200ms;
-    transition: all 200ms;
+    -webkit-transition: all 100ms;
+    transition: all 100ms;
     position: relative;
     -webkit-tap-highlight-color: transparent;
     background:none;
@@ -33,7 +33,7 @@
     top: 0;
     left: 0;
     background: map-get($theme-light, accent );
-    transition: all .2s ease;
+    transition: all .1s ease;
 }
  
 .btn:hover:after, .btn:active:after {
