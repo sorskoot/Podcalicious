@@ -4,7 +4,7 @@ $rythm-eigth:$rythm-bar / 8;     //4
 $rythm-quarter: $rythm-bar / 4;  //8
 $rythm-half: $rythm-bar / 2;     //16
 
-$rythm-quarted-dot: $rythm-quarter + $rythm-eigth; // 12
+$rythm-quarter-dot: $rythm-quarter + $rythm-eigth; // 12
 $rythm-half-dot: $rythm-half + $rythm-quarter;     // 24
 $rythm-bar-dot:$rythm-bar + $rythm-half; //48
 

@@ -1,3 +1,41 @@
-.btn{
-    border:1px solid black;
+.btn:hover{
+    cursor:pointer;
+}
+
+.btn:hover, .btn:active{
+    color: map-get($theme-light, background );
+}
+
+.btn {
+    border: 1px solid map-get($theme-light, accent );
+    text-transform: uppercase;
+    font-size: $rythm-half;
+    font-style: italic;
+    font-family: "Roboto",Helvetica,Arial,sans-serif;
+    display: inline-block;
+    height: $rythm-bar;
+    line-height: $rythm-half-dot;
+    padding: 0 $rythm-quarter-dot;
+    color: map-get($theme-light, accent);
+    -webkit-transition: all 200ms;
+    transition: all 200ms;
+    position: relative;
+    -webkit-tap-highlight-color: transparent;
+    background:none;
+}
+
+.btn:after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 0;
+    top: 0;
+    left: 0;
+    background: map-get($theme-light, accent );
+    transition: all .2s ease;
+}
+ 
+.btn:hover:after, .btn:active:after {
+    height: 100%;
 }
