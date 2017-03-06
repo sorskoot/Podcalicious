@@ -1,4 +1,5 @@
 .input{
+    @extend .regular-font;
     background: none;
     border: 1px solid map-get($theme-light, accent );;
     height: $rythm-bar - 2;
@@ -6,10 +7,16 @@
     margin: 0;
     margin-right:$rythm-quarter;
     font-size: $rythm-half;
-    font-family: "Roboto",Helvetica,Arial,sans-serif;
+    
     color:  map-get($theme-light, accent );
     padding: 0 $rythm-quarter;
     &:focus{
          border-color: map-get($theme-light, foreground );
+    }
+    &::-webkit-input-placeholder,
+    &::-moz-placeholder,
+    &:-ms-input-placeholder,
+    &:-moz-placeholder{
+         color: red;// map-get($theme-light, background-shaded );
     }
 };
