@@ -73,11 +73,16 @@
 	
 	        fetch('/API/Feed/' + encodeURIComponent(query)).then(res => {
 	            res.json().then(result => {
-	
 	                let resultEl = $('#feed')[0];
 	                for (let i = 0; i < result.length; i++) {
 	                    resultEl.innerHTML = resultEl.innerHTML + templater(sessionTemplate, result[i]);
 	                }
+	
+	                $('.play-episode').forEach(d => d.onclick = ce => {
+	                    var url2play = ce.srcElement.parentElement.parentElement.dataset.url;
+	                    $('#streamplayer')[0].src = url2play;
+	                    $('#streamplayer')[0].play();
+	                });
 	            });
 	        });
 	    };
