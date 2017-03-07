@@ -22,6 +22,9 @@ function initialize() {
             res.json().then(result => {
                 let resultEl = $('#feed')[0];
                 for (let i = 0; i < result.length; i++) {
+                    if(!result[i].image.url){
+                        result[i].image.url = result[i].meta.image.url
+                    }
                     resultEl.innerHTML = resultEl.innerHTML + templater(sessionTemplate, result[i]);
                 }
 

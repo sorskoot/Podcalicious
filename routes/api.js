@@ -8,9 +8,10 @@ router.get('/', function (req, res) {
 });
 
 router.get('/feed/:url', function (req, res, next) {
-    const url = 'http://www.codingblocks.net/podcast-feed.xml';
+  //  const url = 'http://www.codingblocks.net/podcast-feed.xml';
 
-    feedparser.parse(url).then((items) => {
+    // validate the URL;
+    feedparser.parse(req.params.url).then((items) => {
         
         
         res.json(items.slice(0,10));
