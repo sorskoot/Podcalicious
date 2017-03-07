@@ -2,4 +2,8 @@
     height:$rythm-double-bar;
     border: 1px solid map-get($theme-light, background-shaded);
     margin:0 $rythm-bar $rythm-half $rythm-bar;
+
+    .feed-icon{
+        overflow:hidden;
+    }
 }

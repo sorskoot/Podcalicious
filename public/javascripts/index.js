@@ -106,20 +106,13 @@
 	            if (m.index === regex.lastIndex) {
 	                regex.lastIndex++;
 	            }
-	            var repl = getNested(replacement, m[1]);
+	            var repl = m[1].split('.').reduce((obj, property) => obj[property], replacement);
 	            if (repl) {
 	                result = result.replace(m[0], repl);
 	            }
 	        }
 	        return result;
 	    };
-	
-	    function getNested(theObject, path) {
-	
-	        return path.split('.').reduce(function (obj, property) {
-	            return obj[property];
-	        }, theObject);
-	    }
 	})();
 
 /***/ }
