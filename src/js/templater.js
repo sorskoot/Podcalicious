@@ -1,6 +1,7 @@
 (function () {
     module.exports = function templater(template, replacement) {
-        const regex = /{{(\w*(?:\.\w+)*)}}/g;
+        //const regex = /{{(\w*(?:\.\w+)*)}}/g;
+        const regex = /{{(\w*(?:(?::|\.)(?:\$|\w)+)*)}}/g;
         let m, result = template;
         while ((m = regex.exec(template)) !== null) {
             if (m.index === regex.lastIndex) {

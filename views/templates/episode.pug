@@ -1,2 +1,2 @@
 script#episode(type="text/template") 
-  +feeditem('{{title}}','{{image.url}}','{{enclosures.0.url}}')
+  +feeditem('{{title}}','{{itunes:image.0.$.href}}','{{enclosure.0.$.url}}')

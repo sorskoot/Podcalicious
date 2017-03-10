@@ -1,25 +1,44 @@
 var express = require('express');
 var router = express.Router();
 
-const feedparser = require('feedparser-promised');
+const xml2js = require('xml2js');
+const http = require('http');
 
 router.get('/', function (req, res) {
     res.send('API');
 });
 
 router.get('/feed/:url', function (req, res, next) {
-  //  const url = 'http://www.codingblocks.net/podcast-feed.xml';
+    //TODO: validate the URL;
 
-    // validate the URL;
-    feedparser.parse(req.params.url).then((items) => {
-        
-        
-        res.json(items.slice(0,10));
-    }).catch((error) => {
-        res.sendStatus(500, error)
+    http.get(req.params.url, message => {
+        message.setEncoding('utf8');
+        let rawData = '';
+        message.on('data', (chunk) => rawData += chunk);
+        message.on('end', () => {
+            try {
+                xml2js.parseString(rawData,(err, result)=>{
+                    if(err){
+                        res.sendStatus(500, err);
+                        return;
+                    }          
+                    res.json(result.rss);
+                })                
+            } catch (e) {
+                 res.sendStatus(500, e.message);
+            }
+        });
+    }).on('error', (e) => {
+        res.sendStatus(500, e.message);
     });
 
+})
 
-});
+    // feedparser.parse(req.params.url).then((items) => {        
+    //     res.json(items.slice(0,10));
+    // }).catch((error) => {
+    //     res.sendStatus(500, error)
+    // });
+
 
 module.exports = router;
